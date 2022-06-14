@@ -73,13 +73,26 @@ creative_commons:
   # CC licenses are available in 39 languages, you can find the specific and correct abbreviation you need on https://creativecommons.org
   language:
 
+# Open graph settings
+# See: https://hexo.io/docs/helpers#open-graph
+open_graph:
+  enable: true
+  options:
+    #twitter_card: <twitter:card>
+    #twitter_id: <twitter:creator>
+    #twitter_site: <twitter:site>
+    #twitter_image: <twitter:image>
+    #google_plus: <g+:profile_link>
+    #fb_admins: <fb:admin_id>
+    #fb_app_id: <fb:app_id>
+
 
 # ---------------------------------------------------------------
 # Menu Settings
 # ---------------------------------------------------------------
 
 # Usage: `Key: /link/ || icon`
-# Key is the name of menu item. If the translation for this item is available, the translated text will be loaded, otherwise the Key name will be used. Key is case-senstive.
+# Key is the name of menu item. If the translation for this item is available, the translated text will be loaded, otherwise the Key name will be used. Key is case-sensitive.
 # Value before `||` delimiter is the target link, value after `||` delimiter is the name of Font Awesome icon.
 # External url should start with http:// or https://
 menu:
@@ -170,7 +183,7 @@ links:
   梦之翼: https://www.fly3949.com/
 
 # Table of Contents in the Sidebar
-# Front-matter variable (unsupport wrap expand_all).
+# Front-matter variable (nonsupport wrap expand_all).
 toc:
   enable: true
   # Automatically add list number to toc.
@@ -253,7 +266,7 @@ symbols_count_time:
 tag_icon: false
 
 # Donate (Sponsor) settings
-# Front-matter variable (unsupport animation).
+# Front-matter variable (nonsupport animation).
 reward_settings:
   # If true, a donate button will be displayed in every article by default.
   enable: false
@@ -275,17 +288,11 @@ follow_me:
   #RSS: /atom.xml || fa fa-rss
 
 # Related popular posts
-# Dependencies: https://github.com/tea3/hexo-related-popular-posts
+# Dependencies: https://github.com/sergeyzwezdin/hexo-related-posts
 related_posts:
   enable: false
   title: # Custom header, leave empty to use the default one
   display_in_home: false
-  params:
-    maxCount: 5
-    #PPMixingRate: 0.0
-    #isDate: false
-    #isImage: false
-    #isExcerpt: false
 
 # Post edit
 # Easily browse and edit blog source code online.
@@ -344,8 +351,10 @@ text_align:
 # Reduce padding / margin indents on devices with narrow width.
 mobile_layout_economy: false
 
-# Android Chrome header panel color ($brand-bg / $headband-bg => $black-deep).
-android_chrome_color: "#222"
+# Browser header panel color.
+theme_color:
+  light: "#222"
+  dark: "#222"
 
 # Override browsers' default behavior.
 body_scrollbar:
@@ -359,7 +368,7 @@ codeblock:
   # All available themes: https://theme-next.js.org/highlight/
   theme:
     light: default
-    dark: tomorrow-night
+    dark: stackoverflow-dark
   prism:
     light: prism
     dark: prism-dark
@@ -500,7 +509,7 @@ baidu_site_verification:
 math:
   # Default (false) will load mathjax / katex script on demand.
   # That is it only render those page which has `mathjax: true` in front-matter.
-  # If you set it to true, it will load mathjax / katex srcipt EVERY PAGE.
+  # If you set it to true, it will load mathjax / katex script EVERY PAGE.
   every_page: false
 
   mathjax:
@@ -537,7 +546,7 @@ pangu: false
 
 # Quicklink Support
 # For more information: https://getquick.link
-# Front-matter variable (unsupport home archive).
+# Front-matter variable (nonsupport home archive).
 quicklink:
   enable: false
 
@@ -570,7 +579,7 @@ comments:
   storage: true
   # Lazyload all comment systems.
   lazyload: false
-  # Modify texts or order for any navs, here are some examples.
+  # Modify texts or order for any naves, here are some examples.
   nav:
     #disqus:
     #  text: Load Disqus
@@ -619,7 +628,7 @@ gitalk:
   admin_user: OrdosX # GitHub repo owner and collaborators, only these guys can initialize gitHub issues
   distraction_free_mode: true # Facebook-like distraction free mode
   # When the official proxy is not available, you can change it to your own proxy address
-  proxy: https://cors-anywhere.azm.workers.dev/https://github.com/login/oauth/access_token # This is official proxy adress
+  proxy: https://cors-anywhere.azm.workers.dev/https://github.com/login/oauth/access_token # This is official proxy address
   # Gitalk's display language depends on user's browser or system environment
   # If you want everyone visiting your site to see a uniform language, you can set a force language value
   # Available values: en | es-ES | fr | ru | zh-CN | zh-TW
@@ -629,7 +638,7 @@ gitalk:
 # For more information: https://utteranc.es
 utterances:
   enable: false
-  repo: # Github repository name
+  repo: user-name/repo-name # Github repository owner and name
   # Available values: pathname | url | title | og:title
   issue_term: pathname
   # Available values: github-light | github-dark | preferred-color-scheme | github-dark-orange | icy-dark | dark-blue | photon-dark | boxy-light
@@ -681,6 +690,10 @@ growingio_analytics: # <project_id>
 # Cloudflare Web Analytics
 # See: https://www.cloudflare.com/web-analytics/
 cloudflare_analytics:
+
+# Microsoft Clarity Analytics
+# See: https://clarity.microsoft.com/
+clarity_analytics: # <project_id>
 
 # Show number of visitors of each article.
 # You can visit https://www.leancloud.cn to get AppID and AppKey.
@@ -798,6 +811,8 @@ note:
 
 # Tabs tag
 tabs:
+  # Make the nav bar of tabs with long content stick to the top.
+  sticky: false
   transition:
     tabs: false
     labels: true
@@ -825,7 +840,7 @@ mermaid:
 # Use Animate.css to animate everything.
 # For more information: https://animate.style
 motion:
-  enable: false
+  enable: true
   async: false
   transition:
     # All available transition variants: https://theme-next.js.org/animate/
@@ -837,10 +852,16 @@ motion:
     sidebar: fadeInUp
 
 # Progress bar in the top during page loading.
-# For more information: https://github.com/rstacruz/nprogress
-nprogress:
+# For more information: https://github.com/CodeByZach/pace
+pace:
   enable: false
-  spinner: true
+  # All available colors:
+  # black | blue | green | orange | pink | purple | red | silver | white | yellow
+  color: blue
+  # All available themes:
+  # big-counter | bounce | barber-shop | center-atom | center-circle | center-radar | center-simple
+  # corner-indicator | fill-left | flat-top | flash | loading-bar | mac-osx | material | minimal
+  theme: minimal
 
 # Canvas ribbon
 # For more information: https://github.com/hustcc/ribbon.js
@@ -851,103 +872,29 @@ canvas_ribbon:
   zIndex: -1 # The display level of the ribbon
 
 
-#! ==============================================================
-#! DO NOT EDIT THE FOLLOWING SETTINGS
-#! UNLESS YOU KNOW WHAT YOU ARE DOING
-#! See: https://theme-next.js.org/docs/advanced-settings/vendors
-#! ==============================================================
+# ---------------------------------------------------------------
+# CDN Settings
+# See: https://theme-next.js.org/docs/advanced-settings/vendors
+# ---------------------------------------------------------------
 
-# It's recommended to use the same version as in `_vendors.yml` to avoid potential problems.
-# Remember to use the HTTPS protocol of CDN links when you enable HTTPS on your site.
 vendors:
   # The CDN provider of NexT internal scripts.
-  # Available values: local | jsdelivr | unpkg | cdnjs
+  # Available values: local | jsdelivr | unpkg | cdnjs | custom
   # Warning: If you are using the latest master branch of NexT, please set `internal: local`
   internal: local
   # The default CDN provider of third-party plugins.
-  # Available values: local | jsdelivr | unpkg | cdnjs
+  # Available values: local | jsdelivr | unpkg | cdnjs | custom
   # Dependencies for `plugins: local`: https://github.com/next-theme/plugins
-  plugins: jsdelivr
-
-  # In the following settings, you can specify the CDN link for each plugin.
-  # If left blank, the default CDN provider set by `plugins` option will be used.
-
-  # Anime.js
-  # For more information: https://animejs.com
-  anime:
-
-  # Font Awesome
-  # For more information: https://fontawesome.com
-  fontawesome:
-
-  # Prism
-  prism:
-  prism_autoloader:
-  prism_line_numbers:
-
-  # MathJax
-  mathjax:
-
-  # KaTeX
-  katex:
-  copy_tex_js:
-  copy_tex_css:
-
-  # Pjax
-  pjax:
-
-  # FancyBox
-  jquery:
-  fancybox_js:
-  fancybox_css:
-
-  # Medium-zoom
-  mediumzoom:
-
-  # Lazyload
-  lazyload:
-
-  # Pangu
-  pangu:
-
-  # Quicklink
-  quicklink:
-
-  # DisqusJS
-  disqusjs_js:
-  disqusjs_css:
-
-  # Gitalk
-  gitalk_js:
-  gitalk_css:
-
-  # Firebase
-  firebase_app:
-  firebase_firestore:
-
-  # Algolia Search
-  algolia_search:
-  instant_search:
-
-  # PDF
-  pdfobject:
-
-  # Mermaid
-  mermaid:
-
-  # Animate.css
-  # Warning: motion won't work with animate.css version 3.2.0 or later
-  animate_css:
-
-  # NProgress.js
-  nprogress_js:
-  nprogress_css:
-
-  # Canvas ribbon
-  canvas_ribbon:
+  plugins: cdnjs
+  # Custom CDN URL
+  # For example:
+  # custom_cdn_url: https://cdn.jsdelivr.net/npm/${npm_name}@${version}/${minified}
+  # custom_cdn_url: https://cdnjs.cloudflare.com/ajax/libs/${cdnjs_name}/${version}/${cdnjs_file}
+  custom_cdn_url:
 
 # Assets
 # Accelerate delivery of static files using a CDN
+# The js option is only valid when vendors.internal is local.
 css: css
 js: js
 images: images
