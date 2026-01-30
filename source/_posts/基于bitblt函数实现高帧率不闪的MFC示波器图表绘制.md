@@ -2,7 +2,7 @@
 title: 基于bitblt函数实现高帧率不闪的MFC示波器图表绘制（附使用例）
 date: 2022-04-18 10:34:23
 categories:
-- 客户端
+- 桌面应用
 tags:
 - C++
 - MFC

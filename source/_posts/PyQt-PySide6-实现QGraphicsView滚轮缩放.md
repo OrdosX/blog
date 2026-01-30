@@ -2,7 +2,7 @@
 title: PyQt(PySide6)实现QGraphicsView滚轮缩放与拖动
 date: 2022-04-28 10:21:26
 categories:
-- 客户端
+- 桌面应用
 tags:
 - python
 - pyqt
